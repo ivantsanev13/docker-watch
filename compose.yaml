@@ -1,0 +1,12 @@
+services:
+  web:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 8000:80
+    x-develop:
+      watch:
+        - path: ./src
+          target: /usr/share/nginx/html
+          action: sync
